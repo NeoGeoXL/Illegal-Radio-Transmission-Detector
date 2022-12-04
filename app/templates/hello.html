@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    {{ super() }}
+    Usuario
+{% endblock %}
+
+{% block content %}
+    
+    <center><h1 style = "color: #dcdcdc;">ALGORITMO DE DETECCION DE TRANSMISIONES NO DESEADAS</h1></center>
+    <center><img  src="{{ url_for('static', filename='images/hello/1.jpg') }}" width="260 px" height="260 px" ></center>
+    {% if username %}
+         <h2 >Bienvenido, {{ username | capitalize }}, en esta pestaña encontraras toda la guia para el uso de esta aplicacion web, asi como el funcionamiento y tecnologia empleada para el desarrollo de este proyecto</h2> 
+    {% endif %}
+
+    <center><h3>FUNCIONAMIENTO Y RANGOS DEL ALGORITMO</h3></center>
+    <h2>
+     Bienvenido,  {{ username | capitalize }}, en esta pestaña encontraras toda la guía para el uso de esta aplicación web, así como el funcionamiento y tecnología empleada para el desarrollo de este proyecto.
+    Este trabajo de titulación es desarrollado con tecnologías de radio definida por software (RTL-SDR), Raspberry Pi, para el hardware y programado con Python para el procesamiento de datos y backend y HTML y CSS para el Frontend de la aplicación. 
+    Su uso es fácil ya que solamente se necesita conectar el dispositivo RTL-SDR a la Raspberry Pi 3, y encenderla y automáticamente se inicializará la aplicación web de detección de señales no deseadas. 
+    <center><img  src="{{ url_for('static', filename='images/hello/rpi-rtlsdr.jpg') }}" width="260 px" height="260 px" ></center>
+    </h2>
+
+    <h2>
+        La aplicación web consta de una barra de navegación en la parte superior en donde se accederán a todas las opciones disponibles del proyecto. La primera opción es la ventana de Información en donde constara el funcionamiento, manual de usuario y concejos para emplear esta aplicación. 
+        Las demás opciones nos permitirán escanear el espectro electromagnético de FM y TV e identificar las señales no deseadas dentro del espectro leído. 
+        El algoritmo de detección de señales no deseadas utiliza la correlación y el root mean squared error para identificar la señal no deseada. La señal de referencia que se necesita para la comparación es procesada en el mismo algoritmo y existe una señal de referencia para cada canal tanto de FM como de TV.
+        Los rangos que opera el algoritmo están definidos por el dispositivo RTL – SDR y va desde los 500 KHz hasta los 1766 MHz, pero para el algoritmo solamente se empleara los rangos de FM y TV. 
+
+    </h2>
+
+{% endblock %}

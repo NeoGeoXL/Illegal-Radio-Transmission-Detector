@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    {{ super() }}
+    Usuario
+{% endblock %}
+
+{% block content %}
+    
+    <center><h2>Mis Alarmas</h2></center>
+    <table>
+        <tr>
+            <th>Frecuencia</th>
+            <th>Potencia</th>
+            <th>Fecha</th>
+            <th>Espectro</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alarma in alarmas %}
+            <tr>
+                <td>{{ alarma.Frecuencia }}</td>
+                <td>{{ alarma.Potencia }}</td>
+                <td>{{ alarma.Fecha }}</td>
+                <td>{{ alarma.Espectro }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    
+{% endblock %}

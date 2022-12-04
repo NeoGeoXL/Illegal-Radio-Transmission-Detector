@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    {{ super() }}
+    Usuario
+{% endblock %}
+
+{% block content %}
+    {% if descision_tv_1 == 0 %}
+        <center><h2>Primera Iteración del Espectro TV VHF: 54.00 MHz a 88.00 MHz </h2></center>
+        <img src="{{ url_for('static', filename='images/mensajes/mensaje_no_hay_espuria.png') }}"width="300 px" height="300 px">
+        <img src="{{ url_for('static', filename='images/tv/espectro_iteracion_tv_1.png') }}" width="700 px" height="400 px">
+    {% else %}
+        <center><h2>Primera Iteración del Espectro FM: 54.00 MHz a 88.00 MHz </h2></center>
+        <img src="{{ url_for('static', filename='images/mensajes/mensaje_si_hay_espuria.png') }}"width="300 px" height="300 px">
+        <img src="{{ url_for('static', filename='images/tv/espectro_iteracion_tv_1.png') }}"width="700 px" height="400 px">
+        <center><h3>La frecuencia no deseada se encuentra en: {{frecuencia_tv_1}} [Mhz] con una potencia de: {{potencia_tv_1}} [dB]</h3></center>
+    {% endif %}
+
+    {% if descision_tv_2 == 0 %}
+        <center><h2>Segunda Iteración del Espectro TV VHF: 174.00 MHz a 216.00 MHz </h2></center>
+        <img src="{{ url_for('static', filename='images/mensajes/mensaje_no_hay_espuria.png') }}"width="300 px" height="300 px">
+        <img src="{{ url_for('static', filename='images/tv/espectro_iteracion_tv_2.png') }}" width="700 px" height="400 px">
+    {% else %}
+        <center><h2>Segunda Iteración del Espectro TV VHF: 174.00 MHz a 216.00 MHz </h2></center>
+        <img src="{{ url_for('static', filename='images/mensajes/mensaje_si_hay_espuria.png') }}"width="300 px" height="300 px">
+        <img src="{{ url_for('static', filename='images/tv/espectro_iteracion_tv_2.png') }}"width="700 px" height="400 px">
+        <center><h3>La frecuencia no deseada se encuentra en: {{frecuencia_tv_2}} [Mhz] con una potencia de: {{potencia_tv_2}} [dB]</h3></center>
+    {% endif %}
+
+
+
+{% endblock %}

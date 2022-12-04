@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{super()}}
+    Erro 404 
+{% endblock %}
+
+{% block content %}
+    <h1>Pagina no disponible</h1>
+    <p>
+        {{error}}
+    </p>
+{% endblock %}
